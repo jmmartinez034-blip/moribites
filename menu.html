@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo | MoriBite</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> 
+
+    <style>
+        /* Paleta de Colores de MoriBite */
+        .bg-primary-mori { background-color: #673AB7 !important; } /* Púrpura/Violeta */
+        .text-primary-mori { color: #1A237E !important; } /* Azul Oscuro/Índigo */
+        .btn-acento-mori {
+            background-color: #FF4081; /* Rosa Vibrante */
+            border-color: #FF4081;
+            color: white;
+        }
+        .btn-acento-mori:hover {
+            background-color: #D32F5C; /* Tono más oscuro al pasar el ratón */
+            border-color: #D32F5C;
+            color: white;
+        }
+        .main-content {
+            padding-top: 56px; /* Espacio para el navbar fijo */
+            min-height: 100vh;
+        }
+        /* Estilos específicos para el botón de carrito flotante */
+        .cart-float-btn {
+            z-index: 1050; /* Para que esté sobre otros elementos, pero debajo del modal */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+            transition: transform 0.2s;
+        }
+        .cart-float-btn:hover {
+            transform: scale(1.05);
+        }
+        
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary-mori fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">MoriBite</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="menu.html">Catálogo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="beneficios.html">Beneficios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <a href="#" class="btn btn-acento-mori rounded-circle cart-float-btn position-fixed bottom-0 end-0 me-3 mb-3" 
+       style="width: 60px; height: 60px; line-height: 48px; font-size: 1.5rem;" 
+       data-bs-toggle="modal" data-bs-target="#checkoutModal">
+        <i class="bi bi-cart-fill"></i>
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cartBadge">
+            0
+            <span class="visually-hidden">Productos en el carrito</span>
+        </span>
+    </a>
+
+    <main class="main-content py-5">
+        <div class="container">
+            <header class="text-center mb-5">
+                <h1 class="display-4 fw-bold text-primary-mori">Nuestro Catálogo MoriBite</h1>
+                <p class="lead">Elige tu barra favorita y llévala a casa.</p>
+            </header>
+            
+            <ul class="nav nav-tabs justify-content-center mb-4" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="tab-clasicas" data-bs-toggle="tab" data-bs-target="#content-clasicas" type="button" role="tab" aria-controls="content-clasicas" aria-selected="true">Clásicas</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab-veganas" data-bs-toggle="tab" data-bs-target="#content-veganas" type="button" role="tab" aria-controls="content-veganas" aria-selected="false">Veganas</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab-proteina" data-bs-toggle="tab" data-bs-target="#content-proteina" type="button" role="tab" aria-controls="content-proteina" aria-selected="false">Alta Proteína</button>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="myTabContent">
+                
+                <div class="tab-pane fade show active" id="content-clasicas" role="tabpanel" aria-labelledby="tab-clasicas">
+                    <div class="row row-cols-1 row-cols-md-3 g-4">
+                        
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <img src="cacao.webp" class="card-img-top" alt="Barra MoriBite Cacao">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold text-primary-mori">MoriBite Cacao</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">$25.00 MXN</h6>
+                                    <p class="card-text">Clásica barra con cacao puro, un impulso de antioxidantes y sabor intenso.</p>
+                                </div>
+                                <div class="card-footer bg-white border-0 text-center pb-3">
+                                    <button class="btn btn-acento-mori addToCartBtn" data-product-id="1">¡Pedir ahora!</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <img src="naranja.jpg" class="card-img-top" alt="Barra MoriBite Naranja">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold text-primary-mori">MoriBite Naranja</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">$22.50 MXN</h6>
+                                    <p class="card-text">Barra cítrica con trozos de naranja, refrescante y llena de Vitamina C.</p>
+                                </div>
+                                <div class="card-footer bg-white border-0 text-center pb-3">
+                                    <button class="btn btn-acento-mori addToCartBtn" data-product-id="2">¡Pedir ahora!</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <img src="piña.jpg" class="card-img-top" alt="Barra MoriBite Piña">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold text-primary-mori">MoriBite Piña</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">$20.00 MXN</h6>
+                                    <p class="card-text">Barra de piña con naranja, nutritiva y deliciosa.</p>
+                                </div>
+                                <div class="card-footer bg-white border-0 text-center pb-3">
+                                    <button class="btn btn-acento-mori addToCartBtn" data-product-id="3">¡Pedir ahora!</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                
+                <div class="tab-pane fade" id="content-veganas" role="tabpanel" aria-labelledby="tab-veganas">
+                    <p class="text-center p-5 lead text-muted">Próximamente, ¡más opciones veganas!</p>
+                </div>
+                
+                <div class="tab-pane fade" id="content-proteina" role="tabpanel" aria-labelledby="tab-proteina">
+                    <p class="text-center p-5 lead text-muted">Consulta nuestra MoriBite Cacao, ¡es nuestra opción más alta en proteína!</p>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-primary-mori text-white py-3 mt-5">
+        <div class="container text-center">
+            <p class="m-0">&copy; 2025 MoriBite | Energía Natural</p>
+        </div>
+    </footer>
+    
+    <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary-mori text-white">
+                    <h5 class="modal-title" id="checkoutModalLabel">Proceso de Compra</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="nav nav-pills mb-4" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="pills-cart-tab" data-bs-toggle="pill" data-bs-target="#pills-cart" type="button" role="tab" aria-controls="pills-cart" aria-selected="true">1. Carrito (<span id="cartCount">0</span>)</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-payment-tab" data-bs-toggle="pill" data-bs-target="#pills-payment" type="button" role="tab" aria-controls="pills-payment" aria-selected="false" disabled>2. Pago</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="pills-tabContent">
+                        
+                        <div class="tab-pane fade show active" id="pills-cart" role="tabpanel" aria-labelledby="pills-cart-tab">
+                            <h5 class="mb-3 text-primary-mori">Productos Seleccionados</h5>
+                            <div id="cartItemsContainer">
+                                <div class="alert alert-info text-center" role="alert" id="emptyCartMessage">
+                                    El carrito está vacío. ¡Añade algunas MoriBites!
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex justify-content-between align-items-center mt-4 pt-3 border-top">
+                                <h4 class="mb-0">Subtotal: <span id="cartTotal">$0.00</span></h4>
+                                <button id="goToPaymentBtn" class="btn btn-acento-mori" disabled>Proceder al Pago <i class="bi bi-arrow-right"></i></button>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-pane fade" id="pills-payment" role="tabpanel" aria-labelledby="pills-payment-tab">
+                            <h5 class="mb-3 text-primary-mori">Información de Pago (Tarjeta)</h5>
+                            <form id="paymentForm">
+                                <div class="mb-3">
+                                    <label for="cardName" class="form-label">Nombre en la Tarjeta</label>
+                                    <input type="text" class="form-control" id="cardName" placeholder="Nombre Apellido" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="cardNumber" class="form-label">Número de Tarjeta</label>
+                                    <input type="text" class="form-control" id="cardNumber" placeholder="XXXX XXXX XXXX XXXX" maxlength="19" required>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="cardExpiry" class="form-label">Vencimiento (MM/AA)</label>
+                                        <input type="text" class="form-control" id="cardExpiry" placeholder="01/25" maxlength="5" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="cardCVC" class="form-label">CVC</label>
+                                        <input type="text" class="form-control" id="cardCVC" placeholder="123" maxlength="4" required>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-success w-100 mt-3">Finalizar Compra (<span id="finalPaymentAmount">$0.00</span>)</button>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        // --- Lógica de Carrito Simplificada ---
+
+        // 1. Datos de productos (simulados)
+        const products = [
+            { id: 1, name: 'MoriBite Cacao', price: 25.00 },
+            { id: 2, name: 'MoriBite Naranja', price: 22.50 },
+            { id: 3, name: 'MoriBite Piña', price: 20.00 },
+        ];
+        
+        // Carrito: array de objetos { productId, quantity }
+        let cart = []; 
+
+        // 2. Funciones de Ayuda
+        
+        /** Busca un producto en el carrito por ID */
+        function findCartItem(id) {
+            return cart.find(item => item.productId === id);
+        }
+
+        /** Actualiza el estado visual del carrito (badges, total, contenido) */
+        function updateCartUI() {
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const totalAmount = cart.reduce((sum, item) => {
+                const product = products.find(p => p.id === item.productId);
+                return sum + (product ? product.price * item.quantity : 0);
+            }, 0);
+            
+            // Actualizar elementos principales
+            document.getElementById('cartBadge').textContent = totalItems;
+            document.getElementById('cartCount').textContent = totalItems;
+            document.getElementById('cartTotal').textContent = `$${totalAmount.toFixed(2)} MXN`;
+            document.getElementById('finalPaymentAmount').textContent = `$${totalAmount.toFixed(2)} MXN`;
+
+            const container = document.getElementById('cartItemsContainer');
+            const emptyMessage = document.getElementById('emptyCartMessage');
+            const paymentBtn = document.getElementById('goToPaymentBtn');
+
+            // 3. Renderizar productos en el modal
+            if (cart.length === 0) {
+                if (emptyMessage) emptyMessage.classList.remove('d-none');
+                container.innerHTML = ''; // Limpiar si está vacío
+                paymentBtn.disabled = true;
+                return;
+            }
+            if (emptyMessage) emptyMessage.classList.add('d-none');
+            
+            let html = '';
+            cart.forEach(item => {
+                const product = products.find(p => p.id === item.productId);
+                if (product) {
+                    html += `
+                        <div class="d-flex justify-content-between align-items-center border-bottom py-2">
+                            <span class="text-primary-mori fw-bold">${product.name}</span>
+                            <div class="d-flex align-items-center">
+                                <button class="btn btn-sm btn-outline-secondary me-2 update-quantity" data-id="${item.productId}" data-action="decrease">-</button>
+                                <span class="mx-2">${item.quantity}</span>
+                                <button class="btn btn-sm btn-outline-secondary me-2 update-quantity" data-id="${item.productId}" data-action="increase">+</button>
+                                <span class="fw-bold me-3 text-end" style="min-width: 60px;">$${(product.price * item.quantity).toFixed(2)}</span>
+                                <button class="btn btn-sm btn-outline-danger remove-item" data-id="${item.productId}"><i class="bi bi-trash"></i></button>
+                            </div>
+                        </div>
+                    `;
+                }
+            });
+            container.innerHTML = html;
+            paymentBtn.disabled = false;
+        }
+
+        /** Añade un producto al carrito */
+        function addToCart(productId) {
+            const id = parseInt(productId);
+            let item = findCartItem(id);
+
+            if (item) {
+                item.quantity += 1;
+            } else {
+                cart.push({ productId: id, quantity: 1 });
+            }
+            updateCartUI();
+        }
+
+        /** Actualiza la cantidad o remueve un producto */
+        function updateQuantity(productId, action) {
+            const id = parseInt(productId);
+            let itemIndex = cart.findIndex(item => item.productId === id);
+
+            if (itemIndex > -1) {
+                if (action === 'increase') {
+                    cart[itemIndex].quantity += 1;
+                } else if (action === 'decrease') {
+                    cart[itemIndex].quantity -= 1;
+                    if (cart[itemIndex].quantity <= 0) {
+                        cart.splice(itemIndex, 1); // Remover si la cantidad es 0
+                    }
+                } else if (action === 'remove') {
+                    cart.splice(itemIndex, 1); // Remover completamente
+                }
+            }
+            updateCartUI();
+        }
+
+        // 4. Listeners
+
+        // Listener para los botones "¡Pedir ahora!" en las tarjetas
+        document.querySelectorAll('.addToCartBtn').forEach(button => {
+            button.addEventListener('click', function() {
+                const productId = this.getAttribute('data-product-id');
+                addToCart(productId);
+            });
+        });
+        
+        // Listener para los botones + / - / Eliminar dentro del modal (delegación de eventos)
+        document.getElementById('cartItemsContainer').addEventListener('click', function(event) {
+            const target = event.target.closest('.update-quantity, .remove-item');
+            if (target) {
+                const productId = target.getAttribute('data-id');
+                if (target.classList.contains('update-quantity')) {
+                    const action = target.getAttribute('data-action');
+                    updateQuantity(productId, action);
+                } else if (target.classList.contains('remove-item')) {
+                    updateQuantity(productId, 'remove');
+                }
+            }
+        });
+
+
+        // 5. Flujo de Navegación del Modal (Carrito -> Pago)
+
+        // Obtener instancias de Tabs de Bootstrap
+        const cartTab = new bootstrap.Tab(document.getElementById('pills-cart-tab'));
+        const paymentTab = new bootstrap.Tab(document.getElementById('pills-payment-tab'));
+        const paymentTabElement = document.getElementById('pills-payment-tab'); // El botón para habilitarlo
+
+        // Botón "Proceder al Pago"
+        document.getElementById('goToPaymentBtn').addEventListener('click', function() {
+            // Habilitar la pestaña de pago y cambiar
+            paymentTabElement.disabled = false;
+            paymentTab.show();
+        });
+
+        // Simulación de formulario de pago
+        document.getElementById('paymentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Lógica de pago simulada
+            alert(`¡Compra de $${document.getElementById('cartTotal').textContent} MXN finalizada con éxito! (Simulación)`);
+            
+            // Vaciar carrito y cerrar modal
+            cart = [];
+            updateCartUI();
+            const modalElement = document.getElementById('checkoutModal');
+            const modalInstance = bootstrap.Modal.getInstance(modalElement);
+            modalInstance.hide();
+            
+            // Regresar a la pestaña de carrito para la próxima vez
+            cartTab.show();
+            paymentTabElement.disabled = true;
+        });
+        
+        // Inicializar la vista del carrito
+        updateCartUI();
+        
+    </script>
+</body>
+</html>
